@@ -1,0 +1,172 @@
+let uid = 0;
+export const nextId = () => `i${++uid}`;
+
+const ing = (name, price, size, unit, qty) => ({ id: nextId(), name, price, size, unit, qty });
+const ext = (name, cost, qty) => ({ id: nextId(), name, cost, qty });
+
+export const MODELS = [
+  {
+    id: 'brigadeiro',
+    label: 'Brigadeiro',
+    image: '/images/brigadeiro.jpg',
+    build: () => ({
+      name: 'Brigadeiro gourmet',
+      type: 'Docinho',
+      yield: 30,
+      ingredients: [
+        ing('Leite condensado', 7.49, 395, 'g', 790),
+        ing('Chocolate em pó 50%', 18.9, 200, 'g', 60),
+        ing('Manteiga sem sal', 12.9, 200, 'g', 30),
+        ing('Creme de leite', 4.29, 200, 'g', 100),
+        ing('Granulado belga', 32, 500, 'g', 150),
+      ],
+      extras: [
+        ext('Forminha nº 4', 0.08, 30),
+        ext('Caixa kraft para 6 unidades', 2.9, 5),
+        ext('Etiqueta com logo', 0.25, 5),
+        ext('Fita de cetim 50 cm', 0.4, 5),
+      ],
+      hours: 2.5,
+      rate: 25,
+      fixMode: 'valor',
+      gas: 4.5,
+      energy: 3.5,
+      other: 0,
+      fixPct: 12,
+      margin: 60,
+    }),
+  },
+  {
+    id: 'bolo-de-pote',
+    label: 'Bolo de pote',
+    image: '/images/bolo-de-pote.jpg',
+    build: () => ({
+      name: 'Bolo de pote de ninho com morango',
+      type: 'Bolo de pote',
+      yield: 12,
+      ingredients: [
+        ing('Farinha de trigo', 6.2, 1000, 'g', 240),
+        ing('Açúcar refinado', 5.49, 1000, 'g', 200),
+        ing('Ovos', 13.9, 12, 'un', 4),
+        ing('Leite integral', 5.39, 1000, 'ml', 240),
+        ing('Leite condensado', 7.49, 395, 'g', 790),
+        ing('Leite em pó', 21.9, 380, 'g', 100),
+        ing('Creme de leite', 4.29, 200, 'g', 200),
+        ing('Morango', 9.9, 250, 'g', 500),
+      ],
+      extras: [
+        ext('Pote 250 ml com tampa', 1.2, 12),
+        ext('Etiqueta com logo', 0.25, 12),
+        ext('Colher descartável', 0.15, 12),
+      ],
+      hours: 3,
+      rate: 25,
+      fixMode: 'valor',
+      gas: 6,
+      energy: 4,
+      other: 0,
+      fixPct: 12,
+      margin: 60,
+    }),
+  },
+  {
+    id: 'cupcake',
+    label: 'Cupcake',
+    image: '/images/cupcake.jpg',
+    build: () => ({
+      name: 'Cupcake red velvet',
+      type: 'Cupcake',
+      yield: 24,
+      ingredients: [
+        ing('Farinha de trigo', 6.2, 1000, 'g', 300),
+        ing('Açúcar refinado', 5.49, 1000, 'g', 300),
+        ing('Ovos', 13.9, 12, 'un', 2),
+        ing('Manteiga sem sal', 12.9, 200, 'g', 115),
+        ing('Leite integral', 5.39, 1000, 'ml', 240),
+        ing('Cacau em pó', 24.9, 200, 'g', 15),
+        ing('Corante vermelho', 8.9, 25, 'ml', 5),
+        ing('Cream cheese', 14.9, 150, 'g', 300),
+        ing('Açúcar de confeiteiro', 7.9, 500, 'g', 250),
+      ],
+      extras: [
+        ext('Forminha para cupcake', 0.12, 24),
+        ext('Caixa individual com visor', 1.5, 24),
+      ],
+      hours: 3,
+      rate: 25,
+      fixMode: 'valor',
+      gas: 5,
+      energy: 4,
+      other: 0,
+      fixPct: 12,
+      margin: 60,
+    }),
+  },
+  {
+    id: 'brownie',
+    label: 'Brownie',
+    image: '/images/brownie.jpg',
+    build: () => ({
+      name: 'Brownie com doce de leite',
+      type: 'Brownie',
+      yield: 16,
+      ingredients: [
+        ing('Chocolate meio amargo', 29.9, 1000, 'g', 200),
+        ing('Manteiga sem sal', 12.9, 200, 'g', 200),
+        ing('Açúcar refinado', 5.49, 1000, 'g', 250),
+        ing('Ovos', 13.9, 12, 'un', 4),
+        ing('Farinha de trigo', 6.2, 1000, 'g', 120),
+        ing('Doce de leite', 12.9, 400, 'g', 300),
+        ing('Cacau em pó', 24.9, 200, 'g', 30),
+      ],
+      extras: [
+        ext('Embalagem individual', 0.6, 16),
+        ext('Etiqueta com logo', 0.25, 16),
+      ],
+      hours: 2,
+      rate: 25,
+      fixMode: 'valor',
+      gas: 4,
+      energy: 3,
+      other: 0,
+      fixPct: 12,
+      margin: 60,
+    }),
+  },
+  {
+    id: 'blank',
+    label: 'Em branco',
+    image: null,
+    build: () => ({
+      name: '',
+      type: 'Docinho',
+      yield: 1,
+      ingredients: [],
+      extras: [],
+      hours: 0,
+      rate: 0,
+      fixMode: 'valor',
+      gas: 0,
+      energy: 0,
+      other: 0,
+      fixPct: 12,
+      margin: 60,
+    }),
+  },
+];
+
+export const PRODUCT_TYPES = ['Docinho', 'Bolo', 'Bolo de pote', 'Cupcake', 'Brownie', 'Torta', 'Sobremesa', 'Outro'];
+
+export const COMMON_INGREDIENTS = [
+  { name: 'Leite condensado', price: 7.49, size: 395, unit: 'g' },
+  { name: 'Creme de leite', price: 4.29, size: 200, unit: 'g' },
+  { name: 'Chocolate meio amargo', price: 29.9, size: 1000, unit: 'g' },
+  { name: 'Chocolate em pó 50%', price: 18.9, size: 200, unit: 'g' },
+  { name: 'Manteiga sem sal', price: 12.9, size: 200, unit: 'g' },
+  { name: 'Açúcar refinado', price: 5.49, size: 1000, unit: 'g' },
+  { name: 'Farinha de trigo', price: 6.2, size: 1000, unit: 'g' },
+  { name: 'Ovos', price: 13.9, size: 12, unit: 'un' },
+  { name: 'Leite integral', price: 5.39, size: 1000, unit: 'ml' },
+];
+
+export const modelById = (id) => MODELS.find((m) => m.id === id);
